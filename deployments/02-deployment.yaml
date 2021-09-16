@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: kuberneteslabb-deployment
+ namespace: b2
+ labels:
+   app: labb
+spec:
+ replicas: 3
+ selector:
+   matchLabels:
+     app: labb
+ template:
+   metadata:
+     labels:
+       app: labb
+   spec:
+     containers:
+       - name: labb
+         image: alutard/kuberneteslabbjesper:latest
+         imagePullPolicy: IfNotPresent
